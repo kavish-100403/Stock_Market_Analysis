@@ -30,11 +30,12 @@ def open_support_vector_regression():
     # Predicting the Test set results
     y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(X_test)).reshape(-1,1))
     np.set_printoptions(precision=13)
-    print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+    # print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
     # Evaluating the Model Performance
     from sklearn.metrics import r2_score
-    print(r2_score(y_test, y_pred)*100)
+    rms=r2_score(y_test, y_pred)*100
+    return rms, "Support Vector Regression"
 
 
 def close_support_vector_regression():
@@ -68,8 +69,9 @@ def close_support_vector_regression():
     # Predicting the Test set results
     y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(X_test)).reshape(-1,1))
     np.set_printoptions(precision=13)
-    print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+    # print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
     # Evaluating the Model Performance
     from sklearn.metrics import r2_score
-    print(r2_score(y_test, y_pred)*100)
+    rms=r2_score(y_test, y_pred)*100
+    return rms, "Support Vector Regression"

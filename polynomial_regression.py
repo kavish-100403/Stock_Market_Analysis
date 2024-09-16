@@ -26,11 +26,12 @@ def open_polynomial_regression():
     # Predicting the Test set results
     y_pred = regressor.predict(poly_reg.transform(X_test))
     np.set_printoptions(precision=13)
-    print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+    # print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
     # Evaluating the Model Performance
     from sklearn.metrics import r2_score
-    print(r2_score(y_test, y_pred)*100)
+    rms=r2_score(y_test, y_pred)*100
+    return rms, "Polynomial Regression"
 
 
 def close_polynomial_regression():
@@ -60,8 +61,9 @@ def close_polynomial_regression():
     # Predicting the Test set results
     y_pred = regressor.predict(poly_reg.transform(X_test))
     np.set_printoptions(precision=13)
-    print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
+    # print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
     # Evaluating the Model Performance
     from sklearn.metrics import r2_score
-    print(r2_score(y_test, y_pred)*100)
+    rms=r2_score(y_test, y_pred)*100
+    return rms, "Polynomial Regression"
