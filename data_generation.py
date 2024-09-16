@@ -50,9 +50,6 @@ def dataGeneration(ticker: str, start_date: datetime.date,  end_date: datetime.d
         print(f"Data exported successfully to {filename}")
 
     # Example usage
-    ticker = "AAPL"
-    start_date = "1971-01-01"
-    end_date = "2024-09-14"
     stock_data = fetch_stock_data(ticker, start_date, end_date)
 
     # Export to CSV
