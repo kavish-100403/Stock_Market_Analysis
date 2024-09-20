@@ -1,13 +1,15 @@
 # Support Vector Regression (SVR)
-def open_support_vector_regression():
+def open_support_vector_regression(filename):
+    # from data_generation import csv_filename
     # Importing the libraries
     import numpy as np
     import matplotlib.pyplot as plt
     import pandas as pd
 
     # Importing the dataset
-    dataset = pd.read_csv('AAPL_stock_data.csv')
-    X = dataset.iloc[:, [i for i in range(dataset.shape[1]) if i not in [0, 1]]].values
+    dataset = pd.read_csv(filename)
+    # dataset = pd.read_csv("AAPL_stock_data.csv")
+    X = dataset.iloc[:, [i for i in range(dataset.shape[1]) if i not in [0, 1,4,5]]].values
     y = dataset.iloc[:, 1].values
     y = y.reshape(len(y),1)
 
@@ -33,20 +35,22 @@ def open_support_vector_regression():
     # print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
     # Evaluating the Model Performance
-    from sklearn.metrics import r2_score
-    rms=r2_score(y_test, y_pred)*100
-    return rms, "Support Vector Regression"
+    from sklearn.metrics import mean_absolute_error
+    MAE=mean_absolute_error(y_test, y_pred)*100
+    return MAE, "Support Vector Regression"
 
 
-def close_support_vector_regression():
+def close_support_vector_regression(filename):
+    # from data_generation import csv_filename
     # Importing the libraries
     import numpy as np
     import matplotlib.pyplot as plt
     import pandas as pd
 
     # Importing the dataset
-    dataset = pd.read_csv('AAPL_stock_data.csv')
-    X = dataset.iloc[:, [i for i in range(dataset.shape[1]) if i not in [0, 4]]].values
+    dataset = pd.read_csv(filename)
+    # dataset = pd.read_csv("AAPL_stock_data.csv")
+    X = dataset.iloc[:, [i for i in range(dataset.shape[1]) if i not in [0, 1,4,5]]].values
     y = dataset.iloc[:, 4].values
     y = y.reshape(len(y),1)
 
@@ -72,6 +76,6 @@ def close_support_vector_regression():
     # print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
     # Evaluating the Model Performance
-    from sklearn.metrics import r2_score
-    rms=r2_score(y_test, y_pred)*100
-    return rms, "Support Vector Regression"
+    from sklearn.metrics import mean_absolute_error
+    MAE=mean_absolute_error(y_test, y_pred)*100
+    return MAE, "Support Vector Regression"
